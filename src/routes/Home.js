@@ -17,7 +17,6 @@ const Home = () => {
   useEffect(() => {
     getMovies();
   }, []);
-  console.log(movies);
   return (
     <div>
       {loading ? (

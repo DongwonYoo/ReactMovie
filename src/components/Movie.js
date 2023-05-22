@@ -10,11 +10,13 @@ const Movie = ({ id, poster, title, release, overview }) => {
       </h2>
       <p>{release}</p>
       <p>{overview}</p>
-      {/* <ul>
-    {movie.genres.map((g) => (
-      <li key={g}>{g}</li>
-    ))}
-  </ul> */}
+      {/* {
+        <ul>
+          {movie.genres.map((g) => (
+            <li key={g}>{g}</li>
+          ))}
+        </ul>
+      } */}
     </div>
   );
 };
