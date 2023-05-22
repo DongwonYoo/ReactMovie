@@ -1,15 +1,19 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom/cjs/react-router-dom";
-
+import styles from "./Movie.module.css";
 const Movie = ({ id, poster, title, release, overview }) => {
   return (
-    <div>
+    <div className={styles.movie_data}>
       <img src={poster} alt={title} style={{ width: "200px" }} />
-      <h2>
+      <h2 className={styles.movie_title}>
         <Link to={`/movie/${id}`}>{title}</Link>
       </h2>
-      <p>{release}</p>
-      <p>{overview}</p>
+      <p className={styles.movie_release}>{release}</p>
+      <p className={styles.movie_overview}>
+        {/* overviewのlengthが２３５を超えた場合２３５まで表示する */}
+
+        {overview.length > 60 ? `${overview.slice(0, 60)}...` : overview}
+      </p>
       {/* {
         <ul>
           {movie.genres.map((g) => (

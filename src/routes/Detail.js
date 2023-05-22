@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import DetailMovie from "../components/DetalilMovie";
+import DetailMovie from "../components/DetailMovie";
 
 const Detail = () => {
   const [loading, setLoading] = useState(true);
@@ -20,6 +20,7 @@ const Detail = () => {
   useEffect(() => {
     getMovie();
   }, [id]);
+
   return (
     <div>
       {loading ? (
