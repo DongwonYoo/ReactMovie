@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.3a5a12b1.css","mappings":"AAAA,uBAGE,sBAAuB,CAFvB,YAAa,CACb,kBAAmB,CAEnB,kBACF","sources":["routes/Home.module.css"],"sourcesContent":[".movieList {\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: flex-start;\r\n  margin-bottom: 20px;\r\n}\r\n"],"names":[],"sourceRoot":""}
