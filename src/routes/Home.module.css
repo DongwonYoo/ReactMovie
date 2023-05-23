@@ -1,6 +1,56 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 89%;
+}
 .movieList {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  margin-bottom: 20px;
+  height: 415px;
+  width: 100%;
+  background-color: aqua;
+}
+.customArrow_next,
+.customArrow_prev {
+  font-size: 0;
+  line-height: 0;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+
+  display: block;
+
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+
+  cursor: pointer;
+
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+.customArrow_next img,
+.customArrow_prev img {
+  width: 40px;
+  height: 40px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.customArrow_prev {
+  left: -20px;
+}
+
+.customArrow_next {
+  right: 0px;
+}
+.customArrow_next img:hover,
+.customArrow_prev img:hover {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
 }

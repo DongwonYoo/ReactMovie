@@ -1,0 +1,30 @@
+.movie_link {
+  text-decoration: none;
+}
+
+.movie_data {
+  font-size: 12px;
+  margin: auto;
+  height: 400px;
+  width: 250px;
+  background-color: tomato;
+}
+
+.movie_data img {
+  margin: 5px auto;
+}
+
+.movie_title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  /* text 1line こえるとき...処理 */
+  text-align: center;
+  height: 10%;
+  margin-top: 1px;
+  margin-bottom: 5px;
+  padding-left: 9px;
+}
+.movie_release {
+  margin-left: 13%;
+}

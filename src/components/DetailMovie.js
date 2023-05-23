@@ -22,7 +22,6 @@ const DetailMovie = ({
           </li>
         ))}
       </ul>
-      {/* overviewのlengthが２３５を超えた場合２３５まで表示する */}
       <p className={styles.detail_movie_overview}>
         {overview.length > 235 ? `${overview.slice(0, 235)}` : overview}
       </p>
