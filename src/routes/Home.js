@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import prevArrowImage from "../icon/prev.png";
 import nextArrowImage from "../icon/next.png";
+import Navigation from "../components/Navigation";
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -39,8 +40,8 @@ const Home = () => {
   const settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToShow: 5,
+    slidesToScroll: 2,
     autoplay: true,
     autoplaySpeed: 4000,
     pauseOnHover: true,
@@ -57,19 +58,19 @@ const Home = () => {
       },
     },
     {
-      breakpoint: 960,
+      breakpoint: 1140,
       settings: {
         slidesToShow: 3,
       },
     },
     {
-      breakpoint: 768,
+      breakpoint: 850,
       settings: {
         slidesToShow: 2,
       },
     },
     {
-      breakpoint: 450,
+      breakpoint: 580,
       settings: {
         slidesToShow: 1,
       },
@@ -77,25 +78,31 @@ const Home = () => {
   ];
 
   return (
-    <div className={styles.container}>
-      {loading ? (
-        <h1>loading..</h1>
-      ) : (
-        <div className={styles.movieList}>
-          <Slider {...settings} responsive={responsiveSettings}>
-            {movies.map((movie) => (
-              <Movie
-                key={movie.id}
-                id={movie.id}
-                poster={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                title={movie.title}
-                release={movie.release_date}
-                overview={movie.overview}
-              />
-            ))}
-          </Slider>
-        </div>
-      )}
+    <div className={styles.home}>
+      <div className={styles.container}>
+        <Navigation />
+        {loading ? (
+          <h1>loading..</h1>
+        ) : (
+          <div className={styles.movie}>
+            <p>Popular</p>
+            <div className={styles.movieList}>
+              <Slider {...settings} responsive={responsiveSettings}>
+                {movies.map((movie) => (
+                  <Movie
+                    key={movie.id}
+                    id={movie.id}
+                    poster={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                    title={movie.title}
+                    release={movie.release_date}
+                    overview={movie.overview}
+                  />
+                ))}
+              </Slider>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,19 @@
+.detail_container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 89%;
+}
+.detail_movie {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail_movie_img {
+  margin-top: 3%;
+  display: flex;
+  justify-content: center;
+}
+.detail_movie_overview {
+}

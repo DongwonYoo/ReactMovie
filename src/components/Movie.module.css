@@ -1,7 +1,15 @@
 .movie_link {
   text-decoration: none;
+  color: black;
+  display: block;
+  transition: 0.3s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
-
+.movie_link:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
 .movie_data {
   font-size: 12px;
   margin: auto;
@@ -18,13 +26,14 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  /* text 1line こえるとき...処理 */
+  /* text 1 line こえるとき...処理 */
   text-align: center;
   height: 10%;
   margin-top: 1px;
   margin-bottom: 5px;
   padding-left: 9px;
 }
+
 .movie_release {
   margin-left: 13%;
 }

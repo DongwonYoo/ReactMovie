@@ -4,10 +4,10 @@ import styles from "./Movie.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const Movie = ({ id, poster, title, release, overview }) => {
+const Movie = ({ id, poster, title, release }) => {
   return (
-    <Link to={`/movie/${id}`} className="movie_link">
-      <div className={styles.movie_data}>
+    <div className={styles.movie_data}>
+      <Link to={`/movie/${id}`} className={styles.movie_link}>
         <img
           src={poster}
           alt={title}
@@ -15,8 +15,8 @@ const Movie = ({ id, poster, title, release, overview }) => {
         />
         <h2 className={styles.movie_title}>{title}</h2>
         <p className={styles.movie_release}>{release}</p>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 
@@ -25,7 +25,6 @@ Movie.propTypes = {
   poster: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   release: PropTypes.string.isRequired,
-  overview: PropTypes.string.isRequired,
 };
 
 export default Movie;
