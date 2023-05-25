@@ -15,5 +15,8 @@
   display: flex;
   justify-content: center;
 }
+.detail_movie_title {
+  text-align: center;
+}
 .detail_movie_overview {
 }

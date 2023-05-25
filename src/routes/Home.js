@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Movie from "../components/Movie";
 import styles from "./Home.module.css";
 import Slider from "react-slick";
+import ModalBasic from "../components/ModalBasic";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -11,6 +13,8 @@ import Navigation from "../components/Navigation";
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   const getMovies = async () => {
     const json = await (
@@ -25,6 +29,12 @@ const Home = () => {
     getMovies();
     return () => {};
   }, []);
+  const handleClickMovie = (movieId) => {
+    const selectedMovie = movies.find((movie) => movie.id === movieId);
+    console.log(selectedMovie);
+    setSelectedMovie(selectedMovie);
+    setModalOpen(true);
+  };
 
   const PrevArrow = (props) => (
     <div className={styles.customArrow_prev} onClick={props.onClick}>
@@ -73,6 +83,7 @@ const Home = () => {
       breakpoint: 580,
       settings: {
         slidesToShow: 1,
+        slidesToScroll: 1,
       },
     },
   ];
@@ -95,15 +106,28 @@ const Home = () => {
                     poster={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                     title={movie.title}
                     release={movie.release_date}
-                    overview={movie.overview}
+                    onClick={handleClickMovie}
                   />
                 ))}
               </Slider>
             </div>
           </div>
         )}
+        {modalOpen && selectedMovie && (
+          <ModalBasic
+            setModalOpen={setModalOpen}
+            id={selectedMovie.id}
+            background={`https://image.tmdb.org/t/p/original${selectedMovie.backdrop_path}`}
+            release={selectedMovie.release_date}
+            title={selectedMovie.title}
+            genres={selectedMovie.genres}
+            homepage={selectedMovie.homepage}
+            overview={selectedMovie.overview}
+          />
+        )}
       </div>
     </div>
   );
 };
+
 export default Home;
