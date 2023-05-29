@@ -12,13 +12,16 @@
 }
 .movie_data {
   font-size: 12px;
+  border-radius: 10px;
   margin: auto;
   height: 400px;
   width: 250px;
-  background-color: tomato;
+  background-color: rgba(235, 236, 255, 0.2);
 }
 
 .movie_data img {
+  border-radius: 5px;
+  padding-top: 10px;
   margin: 5px auto;
 }
 

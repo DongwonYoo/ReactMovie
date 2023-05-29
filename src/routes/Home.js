@@ -29,10 +29,12 @@ const Home = () => {
     getMovies();
     return () => {};
   }, []);
-  const handleClickMovie = (movieId) => {
-    const selectedMovie = movies.find((movie) => movie.id === movieId);
-    console.log(selectedMovie);
-    setSelectedMovie(selectedMovie);
+  const handleClickMovie = async (id) => {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}?language=ja-JP&page=1&sort_by=popularity.desc&api_key=27d409977772952380d3c511e12e7d93`
+    );
+    const data = await response.json();
+    setSelectedMovie(data);
     setModalOpen(true);
   };
 
@@ -96,7 +98,7 @@ const Home = () => {
           <h1>loading..</h1>
         ) : (
           <div className={styles.movie}>
-            <p>Popular</p>
+            <p className={styles.popular}>Popular</p>
             <div className={styles.movieList}>
               <Slider {...settings} responsive={responsiveSettings}>
                 {movies.map((movie) => (
@@ -125,6 +127,80 @@ const Home = () => {
             overview={selectedMovie.overview}
           />
         )}
+      </div>
+      <div className={styles.home}>
+        <div className={styles.container}>
+          {loading ? (
+            <h1>loading..</h1>
+          ) : (
+            <div className={styles.movie}>
+              <p className={styles.popular}>New</p>
+              <div className={styles.movieList}>
+                <Slider {...settings} responsive={responsiveSettings}>
+                  {movies.map((movie) => (
+                    <Movie
+                      key={movie.id}
+                      id={movie.id}
+                      poster={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                      title={movie.title}
+                      release={movie.release_date}
+                      onClick={handleClickMovie}
+                    />
+                  ))}
+                </Slider>
+              </div>
+            </div>
+          )}
+          {modalOpen && selectedMovie && (
+            <ModalBasic
+              setModalOpen={setModalOpen}
+              id={selectedMovie.id}
+              background={`https://image.tmdb.org/t/p/original${selectedMovie.backdrop_path}`}
+              release={selectedMovie.release_date}
+              title={selectedMovie.title}
+              genres={selectedMovie.genres}
+              homepage={selectedMovie.homepage}
+              overview={selectedMovie.overview}
+            />
+          )}
+        </div>
+      </div>
+      <div className={styles.home}>
+        <div className={styles.container}>
+          {loading ? (
+            <h1>loading..</h1>
+          ) : (
+            <div className={styles.movie}>
+              <p className={styles.popular}>Recomend</p>
+              <div className={styles.movieList}>
+                <Slider {...settings} responsive={responsiveSettings}>
+                  {movies.map((movie) => (
+                    <Movie
+                      key={movie.id}
+                      id={movie.id}
+                      poster={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                      title={movie.title}
+                      release={movie.release_date}
+                      onClick={handleClickMovie}
+                    />
+                  ))}
+                </Slider>
+              </div>
+            </div>
+          )}
+          {modalOpen && selectedMovie && (
+            <ModalBasic
+              setModalOpen={setModalOpen}
+              id={selectedMovie.id}
+              background={`https://image.tmdb.org/t/p/original${selectedMovie.backdrop_path}`}
+              release={selectedMovie.release_date}
+              title={selectedMovie.title}
+              genres={selectedMovie.genres}
+              homepage={selectedMovie.homepage}
+              overview={selectedMovie.overview}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

@@ -37,11 +37,22 @@ const ModalBasic = ({
         X
       </button>
       <img src={background} alt={title} />
-      <h2>{title}</h2>
-      <p>{release}</p>
-      <p>{genres && genres.join(", ")}</p>
-      <a href={homepage} target="_blank" rel="noopener noreferrer">
-        Homepage
+      <h2 className={styles.modal_title}>{title}</h2>
+      <p className={styles.modal_release}>{release}</p>
+      <ul className={styles.detail_movie_ul}>
+        {genres.slice(0, 4).map((g) => (
+          <li className={styles.detail_movie_li} key={g.id}>
+            {g.name},
+          </li>
+        ))}
+      </ul>{" "}
+      <a
+        className={styles.detail_movie_link}
+        href={homepage}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {homepage === "" ? <p></p> : <p>公式ホームページ</p>}
       </a>
       <p>{overview}</p>
     </div>

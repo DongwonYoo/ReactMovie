@@ -1,5 +1,12 @@
 body {
-  background-color: beige;
+  background-color: black;
+}
+
+.popular {
+  font-weight: bolder;
+  font-size: x-large;
+  color: beige;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .container {
@@ -8,10 +15,11 @@ body {
   width: 89%;
 }
 .movieList {
+  border-radius: 10px;
   position: relative;
   height: 415px;
   width: 100%;
-  background-color: aqua;
+  background-color: rgba(250, 235, 215, 0.2);
 }
 .customArrow_next,
 .customArrow_prev {
