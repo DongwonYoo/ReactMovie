@@ -31,6 +31,11 @@ const ModalBasic = ({
     };
   }, []);
 
+  const handleLinkClick = (event) => {
+    event.stopPropagation();
+    setModalOpen(false);
+  };
+
   return (
     <div ref={modalRef} className={styles.container}>
       <button className={styles.close} onClick={closeModal}>
@@ -45,15 +50,19 @@ const ModalBasic = ({
             {g.name},
           </li>
         ))}
-      </ul>{" "}
-      <a
-        className={styles.detail_movie_link}
-        href={homepage}
-        target="_blank"
-        rel="noreferrer"
-      >
-        {homepage === "" ? <p></p> : <p>公式ホームページ</p>}
-      </a>
+      </ul>
+
+      {homepage && (
+        <a
+          href={homepage}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={handleLinkClick}
+        >
+          공식 홈페이지
+        </a>
+      )}
+
       <p>{overview}</p>
     </div>
   );
