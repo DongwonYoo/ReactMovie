@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import styles from "./Movie.module.css";
-import ModalBasic from "./ModalBasic";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 

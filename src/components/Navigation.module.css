@@ -6,6 +6,11 @@
   color: #fff;
   padding: 8px;
   height: 15px;
+  position: sticky;
+  top: 15px;
+  width: 100%;
+  z-index: 100;
+  opacity: 0.9;
 }
 
 .nav_logo {

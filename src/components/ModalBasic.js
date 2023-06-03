@@ -59,7 +59,7 @@ const ModalBasic = ({
           rel="noopener noreferrer"
           onClick={handleLinkClick}
         >
-          공식 홈페이지
+          公式ホームページ
         </a>
       )}
 

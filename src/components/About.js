@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Navigation from "./Navigation";
+import styles from "./ModalBasic.module.css";
 
 const About = () => {
   return (

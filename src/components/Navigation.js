@@ -1,7 +1,7 @@
 import MenuBar from "./MenuBar";
 import styles from "./Navigation.module.css";
 const Navigation = () => {
-  const menuItems = ["Home", "About", "New"];
+  const menuItems = ["Home", "Popular", "NowPlaying", "About"];
 
   return (
     <div className={styles.nav}>
